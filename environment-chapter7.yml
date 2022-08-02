@@ -10,6 +10,7 @@ dependencies:
   - ipykernel
   - pip:
       - farm-haystack==0.9.0
+      - pymilvus==1.1.2
       - datasets==1.11.0
       - matplotlib
       - ipywidgets
