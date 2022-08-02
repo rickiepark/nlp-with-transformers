@@ -10,6 +10,6 @@ dependencies:
   - ipykernel
   - pip:
       - farm-haystack[colab]==1.4.0
-      - datasets==1.11.0
+      - datasets
       - matplotlib
       - ipywidgets
