@@ -10,8 +10,8 @@ dependencies:
   - ipykernel
   - pip:
       - farm-haystack==0.9.0
-      - pymilvus==1.1.2
-      - grpcio==1.47.0
+      - pymilvus==1.0.0
+      - grpcio==1.37.0
       - datasets==1.11.0
       - matplotlib
       - ipywidgets
