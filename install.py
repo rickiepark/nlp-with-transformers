@@ -12,6 +12,7 @@ def install_requirements(
     is_chapter2: bool = False, 
     is_chapter6: bool = False,
     is_chapter7: bool = False,
+    is_chapter8: bool = False,
     is_chapter10: bool = False,
     is_chapter11: bool = False
     ):
@@ -35,7 +36,7 @@ def install_requirements(
     else:
         print("✅ Git LFS installed!")
 
-    if is_chapter2:
+    if is_chapter2 or is_chapter8:
         transformers_cmd = "python -m pip install transformers==4.13.0".split()
         process_scatter = subprocess.run(
             transformers_cmd,
