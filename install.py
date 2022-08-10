@@ -36,7 +36,7 @@ def install_requirements(
     else:
         print("✅ Git LFS installed!")
 
-    if is_chapter2 or is_chapter8:
+    if is_chapter2:
         transformers_cmd = "python -m pip install transformers==4.13.0".split()
         process_scatter = subprocess.run(
             transformers_cmd,
@@ -52,6 +52,14 @@ def install_requirements(
             stderr=subprocess.PIPE,
         )
 
+    if is_chapter8:
+        transformers_cmd = "python -m pip install transformers==4.21.1 accelerate==0.12.0".split()
+        process_scatter = subprocess.run(
+            transformers_cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        
     if is_chapter10:
         wandb_cmd = "python -m pip install wandb".split()
         process_scatter = subprocess.run(
