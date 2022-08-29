@@ -13,6 +13,7 @@ def install_requirements(
     is_chapter6: bool = False,
     is_chapter7: bool = False,
     is_chapter8: bool = False,
+    is_chapter9: bool = False,
     is_chapter10: bool = False,
     is_chapter11: bool = False
     ):
@@ -59,7 +60,15 @@ def install_requirements(
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        
+
+    if is_chapter9:
+        transformers_cmd = "python -m pip install transformers==4.13.0".split()
+        process_scatter = subprocess.run(
+            transformers_cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+
     if is_chapter10:
         wandb_cmd = "python -m pip install wandb".split()
         process_scatter = subprocess.run(
