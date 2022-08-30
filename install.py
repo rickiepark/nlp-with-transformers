@@ -62,7 +62,7 @@ def install_requirements(
         )
 
     if is_chapter9:
-        transformers_cmd = "python -m pip install -U transformers".split()
+        transformers_cmd = "python -m pip install transformers==4.13.0".split()
         process_scatter = subprocess.run(
             transformers_cmd,
             stdout=subprocess.PIPE,
