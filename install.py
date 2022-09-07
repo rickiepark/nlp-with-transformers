@@ -38,7 +38,7 @@ def install_requirements(
             [],
             [],
             [],
-            ["transformers", "datasets==2.2.2", "accelerate", "sentencepiece", "psutil", "wandb"]]
+            ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"]]
 
     cmd += libs[chapter-1]
 
