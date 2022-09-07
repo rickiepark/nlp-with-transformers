@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from utils import *
 
 is_colab = "google.colab" in sys.modules
 is_kaggle = "kaggle_secrets" in sys.modules
@@ -9,6 +10,8 @@ torch_to_cuda = {"1.10.0": "cu113", "1.9.0": "cu111", "1.9.1": "cu111"}
 
 
 def install_requirements(
+    chapter: int = 1,
+    is_chapter1: bool = False,
     is_chapter2: bool = False, 
     is_chapter6: bool = False,
     is_chapter7: bool = False,
@@ -20,22 +23,38 @@ def install_requirements(
     """Installs the required packages for the project."""
 
     print("⏳ Installing base requirements ...")
-    cmd = ["python", "-m", "pip", "install", "-r"]
+    cmd = ["python", "-m", "pip", "install"]
+    libs = []
+
     if is_chapter7:
-        cmd += "requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
-    else:
-        cmd.append("requirements.txt")
+        cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
+
+    libs = [["transformers", "datasets", "accelerate", "sentencepiece", "sacremoses"],
+            ["transformers", "datasets", "accelerate", "sentencepiece", "umap-learn"],
+            ["transformers", "datasets", "accelerate", "sentencepiece", "bertviz"],
+            ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
+            [],
+            [],
+            [],
+            [],
+            [],
+            ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"]]
+
+    cmd += libs[chapter-1]
+
     process_install = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if process_install.returncode != 0:
         raise Exception("😭 Failed to install base requirements")
     else:
         print("✅ Base requirements installed!")
-    print("⏳ Installing Git LFS ...")
-    process_lfs = subprocess.run(["apt", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if process_lfs.returncode == -1:
-        raise Exception("😭 Failed to install Git LFS and soundfile")
-    else:
-        print("✅ Git LFS installed!")
+
+    if is_chapter9:
+        print("⏳ Installing Git LFS ...")
+        process_lfs = subprocess.run(["apt", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if process_lfs.returncode == -1:
+            raise Exception("😭 Failed to install Git LFS and soundfile")
+        else:
+            print("✅ Git LFS installed!")
 
     if is_chapter2:
         transformers_cmd = "python -m pip install transformers==4.13.0".split()
@@ -104,3 +123,7 @@ def install_requirements(
         else:
             print("✅ soundfile installed!")
         print("🥳 Chapter installation complete!")
+
+
+    display_library_versions(libs[chapter-1])
+    setup_chapter()

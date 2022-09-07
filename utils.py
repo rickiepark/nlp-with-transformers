@@ -1,13 +1,11 @@
 import logging
 import sys
 from textwrap import TextWrapper
+import importlib
 
-import datasets
-import huggingface_hub
 import matplotlib.font_manager as font_manager
 import matplotlib.pyplot as plt
 import torch
-import transformers
 from IPython.display import set_matplotlib_formats
 
 # TODO: Consider adding SageMaker StudioLab
@@ -29,6 +27,20 @@ def set_plot_style():
     logging.getLogger("matplotlib").setLevel(level=logging.ERROR)
 
 
+def display_library_versions(libraries):
+    for l in libraries:
+        # umap-learn은 패키지 이름과 임포트 이름이 다릅니다.
+        if l == 'umap-learn':
+            l = 'umap'
+        m = importlib.import_module(l)
+        # birtviz의 경우 __version__ 속성이 없으므로
+        # __version__ 속성이 있는 모듈만 버전을 표시합니다.
+        version = ''
+        if hasattr(m, '__version__'):
+            version = f"v{m.__version__}"
+        print(f"Using {m.__name__} {version}")
+
+
 def display_library_version(library):
     print(f"Using {library.__name__} v{library.__version__}")
 
@@ -42,12 +54,15 @@ def setup_chapter():
         if is_kaggle:
             print("Go to Settings > Accelerator and select GPU.")
     # Give visibility on versions of the core libraries
-    display_library_version(transformers)
-    display_library_version(datasets)
+    # display_library_version(transformers)
+    # display_library_version(datasets)
     # Disable all info / warning messages
+    transformers = importlib.import_module("transformers")
     transformers.logging.set_verbosity_error()
+    datasets = importlib.import_module("datasets")
     datasets.logging.set_verbosity_error()
     # Logging is only available for the chapters that don't depend on Haystack
+    huggingface_hub = importlib.import_module("huggingface_hub")
     if huggingface_hub.__version__ == "0.0.19":
         huggingface_hub.logging.set_verbosity_error()
     # Use O'Reilly style for plots
