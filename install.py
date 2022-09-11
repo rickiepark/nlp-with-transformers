@@ -38,7 +38,8 @@ def install_requirements(
             [],
             [],
             [],
-            ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"]]
+            ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
+            ["transformers", "datasets", "accelerate", "sentencepiece"]]
 
     cmd += libs[chapter-1]
 
@@ -95,7 +96,7 @@ def install_requirements(
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-    if is_chapter11:
+    if chapter == 11:
         import torch
 
         torch_version = torch.__version__.split("+")[0]
