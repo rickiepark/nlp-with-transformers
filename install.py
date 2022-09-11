@@ -124,6 +124,7 @@ def install_requirements(
         else:
             print("✅ soundfile installed!")
         print("🥳 Chapter installation complete!")
+        libs[chapter-1].append('torch-scatter')
 
 
     display_library_versions(libs[chapter-1])
