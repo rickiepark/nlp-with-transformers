@@ -29,9 +29,11 @@ def set_plot_style():
 
 def display_library_versions(libraries):
     for l in libraries:
-        # umap-learn은 패키지 이름과 임포트 이름이 다릅니다.
+        # 패키지 이름과 임포트 이름이 다른 경우를 처리합니다.
         if l == 'umap-learn':
             l = 'umap'
+        elif l == 'rouge-score':
+            l = 'rouge'
         l = l.split('==')[0]    # 버전 넘버 제외
         m = importlib.import_module(l)
         # birtviz의 경우 __version__ 속성이 없으므로
