@@ -33,7 +33,7 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece", "umap-learn"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "bertviz"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
-            [],
+            ["transformers", "datasets", "accelerate", "sentencepiece"],
             [],
             [],
             [],
