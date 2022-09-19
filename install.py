@@ -34,7 +34,7 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece", "bertviz"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
             ["transformers", "datasets", "accelerate", "sentencepiece"],
-            [],
+            ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge_score", "nltk", "py7zr"],
             [],
             [],
             [],
