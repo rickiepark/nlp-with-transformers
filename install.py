@@ -39,7 +39,9 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece"]]
 
     if chapter == 7:
-        cmd += "-r requirements-chapter7-v2.txt".split()
+        cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
+    elif chapter == 7.2:
+        cmd += "-r requirements-chapter7.txt".split()
     else:
         cmd += libs[chapter-1]
 
