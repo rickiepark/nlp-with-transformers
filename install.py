@@ -26,24 +26,25 @@ def install_requirements(
     cmd = ["python", "-m", "pip", "install"]
     libs = []
 
-    if is_chapter7:
-        cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
-
     libs = [["transformers", "datasets", "accelerate", "sentencepiece", "sacremoses"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "umap-learn"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "bertviz"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
             ["transformers", "datasets", "accelerate", "sentencepiece"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
-            [],
+            ["transformers", "datasets", "farm-haystack", "torch", "torchvision", "torchaudio"],
             [],
             [],
             ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
             ["transformers", "datasets", "accelerate", "sentencepiece"]]
 
-    cmd += libs[chapter-1]
+    if chapter == 7:
+        cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
+    else:
+        cmd += libs[chapter-1]
 
     process_install = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
     if process_install.returncode != 0:
         raise Exception("😭 Failed to install base requirements")
     else:
@@ -56,22 +57,6 @@ def install_requirements(
             raise Exception("😭 Failed to install Git LFS and soundfile")
         else:
             print("✅ Git LFS installed!")
-
-    if is_chapter2:
-        transformers_cmd = "python -m pip install transformers==4.13.0".split()
-        process_scatter = subprocess.run(
-            transformers_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-
-    if is_chapter6:
-        transformers_cmd = "python -m pip install transformers==4.21.1 datasets==2.0.0".split()
-        process_scatter = subprocess.run(
-            transformers_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
 
     if is_chapter8:
         transformers_cmd = "python -m pip install transformers==4.21.1 accelerate==0.12.0".split()
