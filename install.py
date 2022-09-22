@@ -32,14 +32,14 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
             ["transformers", "datasets", "accelerate", "sentencepiece"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
-            ["transformers", "datasets", "torch"],
+            ["transformers", "datasets", "haystack"],
             [],
             [],
             ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
             ["transformers", "datasets", "accelerate", "sentencepiece"]]
 
     if chapter == 7:
-        cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
+        cmd += "-r requirements-chapter7-v2.txt".split()
     else:
         cmd += libs[chapter-1]
 
