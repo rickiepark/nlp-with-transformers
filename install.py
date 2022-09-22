@@ -32,7 +32,7 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
             ["transformers", "datasets", "accelerate", "sentencepiece"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
-            ["transformers", "datasets", "farm-haystack", "torch"],
+            ["transformers", "datasets", "torch"],
             [],
             [],
             ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
