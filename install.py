@@ -11,14 +11,9 @@ torch_to_cuda = {"1.10.0": "cu113", "1.9.0": "cu111", "1.9.1": "cu111", "1.12.1"
 
 def install_requirements(
     chapter: int = 1,
-    is_chapter1: bool = False,
-    is_chapter2: bool = False, 
-    is_chapter6: bool = False,
     is_chapter7: bool = False,
     is_chapter8: bool = False,
-    is_chapter9: bool = False,
-    is_chapter10: bool = False,
-    is_chapter11: bool = False
+    is_chapter9: bool = False
     ):
     """Installs the required packages for the project."""
 
@@ -33,7 +28,7 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
             ["transformers", "datasets", "haystack"],
-            ["transformers", "datasets", "accelerate"],
+            ["transformers", "datasets", "accelerate", "optuna"],
             [],
             ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
             ["transformers", "datasets", "accelerate", "sentencepiece"]]
@@ -76,13 +71,6 @@ def install_requirements(
             stderr=subprocess.PIPE,
         )
 
-    if is_chapter10:
-        wandb_cmd = "python -m pip install wandb".split()
-        process_scatter = subprocess.run(
-            wandb_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
     if chapter == 11:
         import torch
 
