@@ -33,7 +33,7 @@ def install_requirements(
             ["transformers", "datasets", "accelerate", "sentencepiece"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
             ["transformers", "datasets", "haystack"],
-            [],
+            ["transformers", "accelerate"],
             [],
             ["transformers", "datasets", "accelerate", "sentencepiece", "psutil", "wandb"],
             ["transformers", "datasets", "accelerate", "sentencepiece"]]
