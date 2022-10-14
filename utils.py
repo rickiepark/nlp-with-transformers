@@ -34,6 +34,8 @@ def display_library_versions(libraries):
             l = 'umap'
         elif l == 'rouge-score':
             l = 'rouge_score'
+        elif l == 'scikit-multilearn':
+            l = 'skmultilearn'
         l = l.split('==')[0]    # 버전 넘버 제외
         m = importlib.import_module(l)
         # birtviz의 경우 __version__ 속성이 없으므로
