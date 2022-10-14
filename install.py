@@ -47,30 +47,6 @@ def install_requirements(
     else:
         print("✅ Base requirements installed!")
 
-    if is_chapter9:
-        print("⏳ Installing Git LFS ...")
-        process_lfs = subprocess.run(["apt", "install", "git-lfs"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if process_lfs.returncode == -1:
-            raise Exception("😭 Failed to install Git LFS and soundfile")
-        else:
-            print("✅ Git LFS installed!")
-
-    if is_chapter8:
-        transformers_cmd = "python -m pip install transformers==4.21.1 accelerate==0.12.0".split()
-        process_scatter = subprocess.run(
-            transformers_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-
-    if is_chapter9:
-        transformers_cmd = "python -m pip install transformers==4.13.0".split()
-        process_scatter = subprocess.run(
-            transformers_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-
     if chapter == 11:
         import torch
 
