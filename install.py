@@ -36,7 +36,7 @@ def install_requirements(
     if chapter == 7:
         cmd += "-r requirements-chapter7.txt -f https://download.pytorch.org/whl/torch_stable.html".split()
     elif chapter == 7.2:
-        cmd += "-r requirements-chapter7.txt".split()
+        cmd += "-r requirements-chapter7-v2.txt".split() # requirements file for 7.2
     else:
         cmd += libs[chapter-1]
 
@@ -77,6 +77,6 @@ def install_requirements(
         print("🥳 Chapter installation complete!")
         libs[chapter-1].append('torch-scatter')
 
-
+    chapter = int(chapter) # for 7.2 case
     display_library_versions(libs[chapter-1])
     setup_chapter()
