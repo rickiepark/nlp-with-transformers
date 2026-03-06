@@ -21,12 +21,12 @@ def install_requirements(
     cmd = ["python", "-m", "pip", "install"]
     libs = []
 
-    libs = [["transformers", "datasets", "accelerate", "sentencepiece", "sacremoses"],
-            ["transformers", "datasets", "accelerate", "sentencepiece", "umap-learn"],
+    libs = [["transformers==4.57.6", "datasets", "accelerate", "sentencepiece", "sacremoses"],
+            ["transformers==4.57.6", "datasets", "accelerate", "sentencepiece", "umap-learn"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "bertviz"],
             ["transformers", "datasets", "accelerate", "sentencepiece", "seqeval"],
             ["transformers", "datasets", "accelerate", "sentencepiece"],
-            ["transformers", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
+            ["transformers==4.57.6", "datasets", "accelerate", "sentencepiece", "sacrebleu", "rouge-score", "nltk", "py7zr"],
             ["transformers", "datasets", "haystack"],
             ["transformers", "datasets", "accelerate", "optuna", "onnxruntime", "onnx"],
             ["transformers", "datasets", "accelerate", "nlpaug", "scikit-multilearn", "sacremoses"],
