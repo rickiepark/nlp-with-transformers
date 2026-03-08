@@ -1,6 +1,6 @@
 # 트랜스포머를 활용한 자연어 처리
 
-이 저장소는 [트랜스포머를 활용한 자연어 처리](https://tensorflow.blog/transformer-nlp/) 책의 코드 저장소입니다.
+이 저장소는 [트랜스포머를 활용한 자연어 처리](https://tensorflow.blog/transformer-nlp/) 책의 코드 저장소입니다. 이 저장소의 코드는 최신 버전의 라이브러리와 호환되지 않을 수 있습니다. 각 노트북의 첫 번째 셀 출력에서 사용한 라이브러리 버전을 참고할 수 있습니다.
 
 <img alt="book-cover" height=400 src="https://tensorflowkorea.files.wordpress.com/2022/11/ed919ceca780_ed8ab8eb9e9cec8aa4ed8faceba8b8eba5bced999cec9aa9ed959cec9e90ec97b0ec96b4ecb298eba6ac.png" id="book-cover"/>
 
